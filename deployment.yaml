@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sba-batch
+  namespace: sba
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sba-batch
+  template:
+    metadata:
+      labels:
+        app: sba-batch
+    spec:
+      containers:
+        - name: sba-batch
+          image: registry.cn-chengdu.aliyuncs.com/zhangh/sba-batch:{version}
+          ports:
+            - name: http-port
+              containerPort: 9994
+          env:
+            - name: spring_profiles_active
+              value: k8s
+      imagePullSecrets:
+        - name: sba
