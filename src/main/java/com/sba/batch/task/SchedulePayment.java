@@ -124,5 +124,11 @@ public class SchedulePayment {
 		return object;
 
 	}
+	
+	
+	@Scheduled(cron = "0 0 12 * * *")
+	public void batchAvailableCourse() throws ParseException {
+		courseclient.batchAvailableCourse();
+	}
 
 }

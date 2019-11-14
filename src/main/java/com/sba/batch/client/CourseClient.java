@@ -17,4 +17,9 @@ public interface CourseClient {
 	
 	@RequestMapping(value = "/course/api/v1/batchstatus/{courseid}", method = RequestMethod.PUT)
 	ResponseEntity<Object> updateBatchCourse(@PathVariable("courseid") Integer courseid);
+	
+	
+	@RequestMapping(value = "/course/api/v1/batchAvailableCourse", method = RequestMethod.PUT)
+	ResponseEntity<Object> batchAvailableCourse();
+	
 }
